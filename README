@@ -1,0 +1,56 @@
+                            graphics-log
+
+graphics-log is a tiny bash script help you see log files (real-time!) on your
+Linux server in user friendly (text-based) graphics mode :)
+
+SCREENSHOT
+
+        ┌────────────────┤ Enter application name ├────────────────┐
+        │ What application you want to see log?                    │
+        │                                                          │
+        │ enter you application name here_________________________ │
+        │                                                          │
+        │                                                          │
+        │                                                          │
+        │              <Ok>                  <Cancel>              │
+        │                                                          │
+        └──────────────────────────────────────────────────────────┘
+
+        ┌──────────────────────────────────────────────────────────┐
+        │ Select file to read                                      │
+        │                                                          │
+        │     gariim.log                                  239K     │
+        │     gariimnotify.log                            196      │
+        │     gariimnotify-stderr---supervisor-PUAT3K.log 0        │
+        │     gariim-stderr---supervisor-ed6NCv.log       175K     │
+        │     strider.log                                 63K      │
+        │     strider-stderr---supervisor-1ATBfM.log      132      │
+        │     supervisord.log                             19K      │
+        │                                                          │
+        │                                                          │
+        │                                                          │
+        │              <Open>                <Cancel>              │
+        │                                                          │
+        └──────────────────────────────────────────────────────────┘
+
+HOW DID YOU DO IT?
+
+    This script use "whiptail" and "dialog" to display graphical dialogues such
+    as file select or application name input.
+
+    That's mean you need to install them via packages manager before using, but
+    don't worry, most Linux distro (Ubuntu!!!) already included them.
+
+HOW TO INSTALL?
+
+    To install "graphics-log", just clone this repository to your server:
+
+        > git clone http://github.com/huytd/graphics-log
+        > cd graphics-log
+
+    Run "install.sh" script:
+
+        > ./install.sh
+
+    The installer will create a symlink of "log" script in your "/usr/local/bin"
+    so you can run it anywhere you want.

@@ -1,0 +1,20 @@
+#!/bin/bash
+APPNAME=$(whiptail --title "Enter application name" --inputbox "What application you want to see log?" 10 60 "" 3>&1 1>&2 2>&3)
+
+if [[ $? == 1 ]]
+then
+    echo "Well... bye!"
+    clear
+else
+    APPPATH="/var/log/${APPNAME}/"
+    FILES=$(ls -lhp ${APPPATH} | awk -F ' ' ' { print $9 " " $5 } ')
+    SELECTED=$(whiptail --menu "Select file to read" 20 60 10 --cancel-button Cancel --ok-button Open $FILES 3>&1 1>&2 2>&3)
+    echo "You selected: ${APPPATH}${SELECTED}"
+    dialog --no-shadow --exit-label "DONE" --no-lines --print-maxsize --tailbox ${APPPATH}${SELECTED} 24 80
+    if [[ $? == 0 ]]
+    then
+        clear
+    fi
+fi
+
+clear
